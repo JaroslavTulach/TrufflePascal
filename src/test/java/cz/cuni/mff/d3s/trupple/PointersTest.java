@@ -155,4 +155,25 @@ public class PointersTest extends JUnitTest {
         testWithInput(code, "lemmiF sivarT", "Travis Fimmel", true);
     }
 
+    @Test
+    public void modOnPointer() {
+        String code = "program main;\n"+
+                "\n"+
+                "type pnode = ^node;\n"+
+                "node = record\n"+
+                " previous: pnode;\n"+
+                " value: integer;\n"+
+                "end;\n"+
+                "function filterAndAdd(root: pnode; number: integer): boolean;\n" +
+                "var d: integer;\n"+
+                "begin\n"+
+                "  d := number mod f^.n;\n"+
+                "  filterAndAdd := d = 0;\n"+
+                "end;\n"+
+                "begin\n" +
+                "end.";
+
+        testWithInput(code, "lemmiF sivarT", "", true);
+    }
+
 }
